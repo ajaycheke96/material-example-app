@@ -36,6 +36,10 @@ import { VisitorLogComponent } from './pages/visitor-log/visitor-log.component';
 import { VisitorLogListComponent } from './pages/visitor-log/visitor-log-list/visitor-log-list.component';
 import { VisitorLogAddComponent } from './pages/visitor-log/visitor-log-add/visitor-log-add.component';
 import { VisitorLogEditComponent } from './pages/visitor-log/visitor-log-edit/visitor-log-edit.component';
+import { EnquiryComponent } from './pages/enquiry/enquiry.component';
+import { EnquiryListComponent } from './pages/enquiry/enquiry-list/enquiry-list.component';
+import { EnquiryEditComponent } from './pages/enquiry/enquiry-edit/enquiry-edit.component';
+import { EnquiryAddComponent } from './pages/enquiry/enquiry-add/enquiry-add.component';
 
 
 @NgModule({
@@ -67,7 +71,11 @@ import { VisitorLogEditComponent } from './pages/visitor-log/visitor-log-edit/vi
     VisitorLogComponent,
     VisitorLogListComponent,
     VisitorLogAddComponent,
-    VisitorLogEditComponent
+    VisitorLogEditComponent,
+    EnquiryComponent,
+    EnquiryListComponent,
+    EnquiryEditComponent,
+    EnquiryAddComponent
   ],
   imports: [
     BrowserModule,

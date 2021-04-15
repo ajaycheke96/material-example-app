@@ -1,0 +1,101 @@
+<!-- Form -->
+<mat-card fxLayoutAlign="center" fxFlexFill class="main-div">
+    <div fxFlex="50">
+        <mat-toolbar color="primary">Add Enquiry Form</mat-toolbar>
+        <form [formGroup]="enquiryForm" fxLayloutAlign="stretch" fxLayout="column">
+
+            <mat-form-field>
+                <mat-label>first Guardian Name</mat-label>
+                <input matInput formControlName="firstGuardianName" placeholder="first Guardian Name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>first Guardian Relation</mat-label>
+                <input matInput formControlName="firstGuardianRelation" placeholder="first Guardian Relation">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Date Of Enquiry</mat-label>
+                <input matInput formControlName="dateOfEnquiry" placeholder="ex: YYYY/MM/DD">
+            </mat-form-field>
+
+            <form [formGroup]="enquirySourceForm">
+                <mat-toolbar>Enquiry Source</mat-toolbar>
+                <mat-form-field>
+                    <mat-label>Id</mat-label>
+                    <input matInput formControlName="id" placeholder="id">
+                </mat-form-field>
+                <!-- 
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>description</mat-label>
+                    <input matInput formControlName="description" placeholder="description">
+                </mat-form-field> -->
+            </form>
+
+            <form [formGroup]="enquiryTypeForm">
+                <mat-toolbar>Enquiry Type</mat-toolbar>
+                <mat-form-field>
+                    <mat-label>Id</mat-label>
+                    <input matInput formControlName="id" placeholder="id">
+                </mat-form-field>
+                <!-- 
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>description</mat-label>
+                    <input matInput formControlName="description" placeholder="description">
+                </mat-form-field> -->
+            </form>
+
+            <form [formGroup]="userForm">
+                <mat-toolbar>User</mat-toolbar>
+                <mat-form-field>
+                    <mat-label>user</mat-label>
+                    <input matInput formControlName="id" placeholder="User Id">
+                </mat-form-field>
+            </form>
+
+            <div formArrayName="enquiryDetails"
+                *ngFor="let enquiryDetailsFormGroup of enquiryDetails.controls; let i = index;">
+
+                <mat-toolbar color="primary" class="sub-form">
+                    Enquiry Detail : {{i+1}}
+                    <button mat-raised-button color="warn" (click)="removeEnquiryDetail(i)"> >< </button>
+                </mat-toolbar>
+                <form [formGroupName]="i" class="form-style">
+
+                    <mat-form-field>
+                        <mat-label>studentName</mat-label>
+                        <input matInput formControlName="studentName" placeholder="studentName">
+                    </mat-form-field>
+
+                    <div formGroupName="cours">
+                        <mat-form-field>
+                            <mat-label>course</mat-label>
+                            <input matInput formControlName="id" placeholder="Course Id">
+                        </mat-form-field>
+                    </div>
+
+                    <div formGroupName="institute">
+                        <mat-form-field>
+                            <mat-label>institute</mat-label>
+                            <input matInput formControlName="id" placeholder="Institute Id">
+                        </mat-form-field>
+                    </div>
+
+                </form>
+            </div>
+            <button mat-raised-button color="warn" (click)="addEnquiryDetail()"> + </button>
+            <button mat-raised-button color="primary" (click)="onSubmit();">Add</button>
+
+        </form>
+    </div>
+</mat-card>

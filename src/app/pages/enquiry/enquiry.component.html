@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <button mat-button *ngIf="!isAdd" (click)="showAdd();">Add Enquiry</button>
+        <button mat-button *ngIf="!isList" (click)="showList();">Enquiry List</button>
+    </div>
+    <div *ngIf="isList">
+        <app-enquiry-list (editEnquiryById)="showEdit($event)"></app-enquiry-list>
+    </div>
+    <div *ngIf="isEdit">
+        <app-enquiry-edit [enquiryId]="enquiryId" (sendMessageToListFromEdit)="sendMessageToListFromEdit($event)">
+        </app-enquiry-edit>
+    </div>
+    <div *ngIf="isAdd">
+        <app-enquiry-add></app-enquiry-add>
+    </div>
+</div>

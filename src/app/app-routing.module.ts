@@ -7,6 +7,7 @@ import { CallLogsComponent } from './pages/call-logs/call-logs.component';
 import { ClassTeacherComponent } from './pages/class-teacher/class-teacher.component';
 import { ClassTimingSessionComponent } from './pages/class-timing-session/class-timing-session.component';
 import { EmployeeTermComponent } from './pages/employee-term/employee-term.component';
+import { EnquiryComponent } from './pages/enquiry/enquiry.component';
 import { VisitorLogComponent } from './pages/visitor-log/visitor-log.component';
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'visitorLog',
     component: VisitorLogComponent
+  },
+  {
+    path: 'enquiry',
+    component: EnquiryComponent
   }
 ];
 
