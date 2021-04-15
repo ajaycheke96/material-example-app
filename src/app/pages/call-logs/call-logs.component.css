@@ -1,0 +1,15 @@
+table{
+    width: 100%;
+}
+/* 
+mat-form-field{
+    margin-right: 12px;
+} */
+
+.main-div mat-card{
+    padding: 0px;
+}
+
+.save-form {
+ padding: 20px;
+}

@@ -1,0 +1,21 @@
+<a mat-button routerLink="/callLog">Call Logs</a>
+<a mat-button routerLink="/article">Articles</a>
+<a mat-button routerLink="/classTimingSession">Class Timing Session</a>
+<a mat-button routerLink="/academicSession">academic Session</a>
+<a mat-button routerLink="/employeeTerm">Employee Term</a>
+<a mat-button routerLink="/classTeacher">Class Teacher</a>
+<a mat-button routerLink="/visitorLog">Visitor Log</a>
+
+<button mat-button (click)="logout();" *ngIf="isLoggedIn" style="left: 50; top: 0;">Logout</button>
+
+<!-- <mat-sidenav-container>
+    <mat-sidenav opened>
+        Sidenav
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        Content
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<router-outlet></router-outlet>

@@ -1,0 +1,105 @@
+<!-- Form -->
+<mat-card fxLayoutAlign="center" fxFlexFill class="main-div">
+    <div fxFlex="50">
+        <mat-toolbar color="primary">Add VisitorLog Form</mat-toolbar>
+        <form [formGroup]="visitorLogForm" fxLayloutAlign="stretch" fxLayout="column">
+
+            <mat-toolbar>Visitor Field</mat-toolbar>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="visitor name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>CompanyName</mat-label>
+                <input matInput formControlName="companyName" placeholder="visitor CompanyName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>address</mat-label>
+                <input matInput formControlName="address" placeholder="visitor address">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>contactNumber</mat-label>
+                <input matInput formControlName="contactNumber" placeholder="visitor contactNumber">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>dateOfVisit</mat-label>
+                <input matInput formControlName="dateOfVisit" placeholder="Visitor dateOfVisit. ex: YYYY/MM/DD">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>entryTime</mat-label>
+                <input matInput formControlName="entryTime" placeholder="visitor entryTime">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>exitTime</mat-label>
+                <input matInput formControlName="exitTime" placeholder="visitor exitTime">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>relationWithStudent</mat-label>
+                <input matInput formControlName="relationWithStudent" placeholder="visitor relationWithStudent">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>remarks</mat-label>
+                <input matInput formControlName="remarks" placeholder="remarks">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>type</mat-label>
+                <input matInput formControlName="type" placeholder="Visit type">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>visitorCount</mat-label>
+                <input matInput formControlName="visitorCount" placeholder="visitorCount">
+            </mat-form-field>
+
+            <form [formGroup]="visitingPurposeForm">
+                <mat-toolbar>Visiting Purpose Fields</mat-toolbar>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="name">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description" placeholder="description">
+                </mat-form-field>
+            </form>
+
+            <form [formGroup]="employeeForm">
+                <mat-toolbar>Employee Fields</mat-toolbar>
+                <mat-form-field>
+                    <mat-label>Employee Name</mat-label>
+                    <mat-select matSelect formControlName="id">
+                        <mat-option *ngFor="let employee of employees" [value]="employee.id">
+                            {{employee.firstName}} {{ employee.lastName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+
+            <form [formGroup]="studentForm">
+                <mat-toolbar>Student Fields</mat-toolbar>
+                <!-- <mat-form-field>
+                    <mat-label>Student Name</mat-label>
+                    <mat-select matSelect formControlName="id">
+                        <mat-option *ngFor="let student of students" [value]="student.id">
+                            {{student.firstName}} {{ student.lastName }}</mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+                <mat-form-field>
+                    <mat-label>Id</mat-label>
+                    <input matInput formControlName="id" placeholder="Student Id">
+                </mat-form-field>
+            </form>
+
+            <button mat-raised-button color="primary" (click)="onSubmit();">Add</button>
+
+        </form>
+    </div>
+</mat-card>

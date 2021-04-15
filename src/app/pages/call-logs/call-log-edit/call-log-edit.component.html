@@ -1,0 +1,55 @@
+<mat-card fxLayoutAlign="center" fxFlexFill class="main-div">
+    <div fxFlex="50">
+        <mat-toolbar color="primary">
+            Edit Call Log Page
+        </mat-toolbar>
+        <form [formGroup]="editCallLogForm" fxLayoutAlign="stretch" fxLayout="column" class="edit-form">
+
+            <input type="hidden" formControlName="callLogId">
+
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="callLogName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="callLogDescription"></textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>IncomingNumber</mat-label>
+                <input matInput type="text" formControlName="callLogIncomingNumber">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>OutgoingNumber</mat-label>
+                <input matInput type="text" formControlName="callLogOutgoingNumber">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Type</mat-label>
+                <input matInput type="text" formControlName="callLogType">
+            </mat-form-field>
+
+            <input type="hidden" formControlName="callingPurposeId" hidden>
+
+            <mat-form-field>
+                <mat-label>calling Purpose</mat-label>
+                <input matInput type="text" formControlName="callingPurposeName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>callingPurpose Description</mat-label>
+                <textarea matInput formControlName="callingPurposeDescription"></textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>user Id</mat-label>
+                <input matInput type="number" formControlName="userId">
+            </mat-form-field>
+
+            <button mat-button color="primary" (click)="editCallLog();">Edit Call Log</button>
+        </form>
+    </div>
+</mat-card>

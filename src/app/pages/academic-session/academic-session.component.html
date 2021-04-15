@@ -1,0 +1,18 @@
+<div>
+    <div>
+        <button mat-button *ngIf="!isListViewShow" (click)="toggleListPage();">Academic Session List</button>
+        <button mat-button *ngIf="!isAddViewShow" (click)="toggleAddPage();">Add Academic Session</button>
+    </div>
+    <div>
+        <app-academic-session-add *ngIf="isAddViewShow"></app-academic-session-add>
+    </div>
+    <div>
+        <app-academic-session-list *ngIf="isListViewShow" (sendAcademicSessionId)="fetchAcademicSessionId($event)">
+        </app-academic-session-list>
+    </div>
+    <div>
+        <app-academic-session-edit *ngIf="isEditViewShow" (sendMessageToList)="fetchMessageFromEdit($event);"
+            [academicSessionId]="academicSessionId">
+        </app-academic-session-edit>
+    </div>
+</div>

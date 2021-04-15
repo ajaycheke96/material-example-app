@@ -1,0 +1,18 @@
+<p>class-timing-session</p>
+<button mat-button *ngIf="!isClassTimingSessionAddShow" (click)="toggleClassTimingSessionAdd();">Add
+    ClassTimingSession</button>
+<button mat-button *ngIf="!isClassTimingSessionListShow" (click)="toggleClassTimingSessionList();">ClassTimingSession
+    List</button>
+<div>
+    <div *ngIf="isClassTimingSessionListShow">
+        <app-class-timing-session-list (showEditClassTimingSessionView)="showEditClassTimingSessionView($event)">
+        </app-class-timing-session-list>
+    </div>
+    <div *ngIf="isClassTimingSessionAddShow">
+        <app-class-timing-session-add></app-class-timing-session-add>
+    </div>
+    <div *ngIf="isClassTimingSessionEditShow">
+        <app-class-timing-session-edit [classTimingSessionId]="classTimingSessionId"
+            (getMessageFromEditPage)="getMessageFromEditPage($event)"></app-class-timing-session-edit>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<mat-card class="mat-elevation-z8">
+    <mat-toolbar color="primary">ClassTimingSession List</mat-toolbar>
+    <table mat-table [dataSource]="classTimingSessions">
+        <!-- 'position', 'name', 'start', 'end', 'isABreak', 'classTimigName', 'academicSessionName', 'operations' -->
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- start Column -->
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef> Start </th>
+            <td mat-cell *matCellDef="let element"> {{element.start}} </td>
+        </ng-container>
+
+        <!-- end Column -->
+        <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef> End </th>
+            <td mat-cell *matCellDef="let element"> {{element.end}} </td>
+        </ng-container>
+
+        <!-- isABreak Column -->
+        <ng-container matColumnDef="isABreak">
+            <th mat-header-cell *matHeaderCellDef> isABreak </th>
+            <td mat-cell *matCellDef="let element">
+                <!-- style="border-radius: 50%; text-align: center; background-color: rgb(20, 248, 20); color: black;" -->
+                <div *ngIf="element.isABreak==1">
+                    Break</div>
+                <div *ngIf="element.isABreak!=1">
+                    Normal class</div>
+            </td>
+        </ng-container>
+
+        <!-- classTimigName Column -->
+        <ng-container matColumnDef="classTimigName">
+            <th mat-header-cell *matHeaderCellDef> classTimigName </th>
+            <td mat-cell *matCellDef="let element"> {{element.classTiming.name}} </td>
+        </ng-container>
+
+        <!-- academicSessionName Column -->
+        <ng-container matColumnDef="academicSessionName">
+            <th mat-header-cell *matHeaderCellDef> academicSessionName </th>
+            <td mat-cell *matCellDef="let element"> {{element.classTiming.academicSession.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="operations">
+            <th mat-header-cell *matHeaderCellDef colspan="2"> Operations </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="editClassTimingSession(element.id);">Edit</button>
+                <button mat-button (click)="deleteClassTimingSession(element);">Delete</button>
+            </td>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
+    </mat-paginator>
+</mat-card>

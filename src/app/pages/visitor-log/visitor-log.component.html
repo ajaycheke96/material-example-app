@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <button mat-button *ngIf="!isAdd" (click)="showAdd();">Add</button>
+        <button mat-button *ngIf="!isList" (click)="showList();">List</button>
+    </div>
+    <div *ngIf="isList">
+        <app-visitor-log-list (showEdit)="showEdit($event)"></app-visitor-log-list>
+    </div>
+    <div *ngIf="isAdd">
+        <app-visitor-log-add></app-visitor-log-add>
+    </div>
+    <div *ngIf="isEdit">
+        <app-visitor-log-edit [visitorLogId]="visitorLogId"
+            (sendMessageFromEditToList)="sendMessageFromEditToList($event)"></app-visitor-log-edit>
+    </div>
+</div>

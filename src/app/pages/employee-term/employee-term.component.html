@@ -1,0 +1,19 @@
+<div>
+    <div>
+        <button mat-raised-button (click)="listInit();" *ngIf="!isList">EmployeeTerm List</button>
+        <button mat-raised-button (click)="addInit();" *ngIf="!isAdd">Add EmployeeTerm</button>
+    </div>
+    <div>
+        <!-- List -->
+        <app-employee-term-list *ngIf="isList" (editInitFormList)="editInitFormList($event)"></app-employee-term-list>
+    </div>
+    <div>
+        <!-- Edit -->
+        <app-employee-term-edit *ngIf="isEdit" (sendMessageToListFromEdit)="sendMessageToListFromEdit($event)"
+            [employeeTermId]="employeeTermId"></app-employee-term-edit>
+    </div>
+    <div>
+        <app-employee-term-add *ngIf="isAdd"></app-employee-term-add>
+    </div>
+
+</div>

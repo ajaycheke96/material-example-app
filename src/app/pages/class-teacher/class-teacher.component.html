@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <button mat-button *ngIf="!isList" (click)="showList();">Class Teacher List</button>
+        <button mat-button *ngIf="!isAdd" (click)="showAdd();">Add Class Teacher</button>
+    </div>
+    <div *ngIf="isList">
+        <app-class-teacher-list (showEdit)="showEdit($event)"></app-class-teacher-list>
+    </div>
+    <div *ngIf="isAdd">
+        <app-class-teacher-add></app-class-teacher-add>
+    </div>
+    <div *ngIf="isEdit">
+        <app-class-teacher-edit (sendMessageFromEditToList)="sendMessageFromEditToList($event)"
+            [classTeacherId]="classTeacherId"></app-class-teacher-edit>
+    </div>
+</div>

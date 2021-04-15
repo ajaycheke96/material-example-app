@@ -1,0 +1,59 @@
+<!-- Form -->
+<mat-card fxLayoutAlign="center" fxFlexFill class="main-div">
+    <div fxFlex="50">
+        <mat-toolbar color="primary">Edit Article Form</mat-toolbar>
+        <form [formGroup]="editArticleForm" class="article-form" fxLayloutAlign="stretch" fxLayout="column">
+            <input type="hidden" formControlName="articleId">
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="articleName" placeholder="Title">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Date of Article</mat-label>
+                <input type="date" matInput formControlName="articleDateOfArticle">
+            </mat-form-field>
+
+            <mat-form-field class="call-log-full-width">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="articleDescription"
+                    placeholder="Write article Description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="call-log-full-width">
+                <mat-label>IsPublic</mat-label>
+                <input matInput formControlName="articleIsPublic"
+                    placeholder="ex. 1 for isPublic and 0 for is Not public">
+            </mat-form-field>
+
+            <input type="hidden" formControlName="articleCreatedAt">
+            <input type="hidden" formControlName="articleUpdatedAt">
+
+
+            <input type="hidden" formControlName="articleTypeId">
+
+            <mat-form-field class="call-log-full-width">
+                <mat-label>articleType Name</mat-label>
+                <input matInput formControlName="articleTypeName" placeholder="Enter articleType Name here">
+            </mat-form-field>
+
+            <input type="hidden" formControlName="articleTypeCreatedAt">
+            <input type="hidden" formControlName="articleTypeUpdatedAt">
+
+            <mat-form-field class="call-log-full-width">
+                <mat-label>Article Type Description</mat-label>
+                <textarea matInput formControlName="articleTypeDescription"
+                    placeholder="Write articleType Description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="call-log-full-width">
+                <mat-label>user Id</mat-label>
+                <input matInput type="number" formControlName="userId" placeholder="Enter User Id here">
+            </mat-form-field>
+
+            <button mat-button (click)="editArticle();">Update Article</button>
+        </form>
+        <!-- End Form -->
+    </div>
+</mat-card>

@@ -1,0 +1,128 @@
+<!-- Form -->
+<mat-card fxLayoutAlign="center" fxFlexFill class="main-div">
+    <div fxFlex="50">
+        <mat-toolbar color="primary">Edit Employee Term Form</mat-toolbar>
+        <form [formGroup]="form" fxLayloutAlign="stretch" fxLayout="column">
+
+            <input type="hidden" formControlName="id">
+
+            <mat-form-field>
+                <mat-label>employee Id</mat-label>
+                <input matInput formControlName="employeeId" placeholder="employee Id">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Date Of Joining</mat-label>
+                <input matInput formControlName="dateOfJoining" placeholder="ex: YYYY/MM/DD">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Date Of Leaving</mat-label>
+                <input matInput formControlName="dateOfLeaving" placeholder="ex: YYYY/MM/DD">
+            </mat-form-field>
+
+            <input type="hidden" formControlName="createdAt">
+            <input type="hidden" formControlName="updatedAt">
+
+            <div formArrayName="employeeDesignations"
+                *ngFor="let employeeDesignationFormGroup of employeeDesignations.controls; let i = index;">
+
+                <mat-toolbar color="primary" class="sub-form">
+                    Employee Designation: {{i+1}}
+                    <button mat-raised-button color="warn" (click)="removeEmployeeDesignation(i)"> >< </button>
+                </mat-toolbar>
+                <form [formGroupName]="i" class="form-style">
+                    <input type="hidden" formControlName="id">
+                    <input type="hidden" formControlName="createdAt">
+                    <input type="hidden" formControlName="updatedAt">
+                    <input type="hidden" formControlName="departmentId">
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Department</mat-label>
+                        <mat-select matSelect formControlName="departmentId">
+                            <mat-option *ngFor="let department of departments" [value]="department.id">
+                                {{department.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label> Select Designation</mat-label>
+                        <mat-select formControlName="designationId">
+                            <mat-option *ngFor="let designation of designations" [value]="designation.id"
+                                [selected]="designation.id==designationId">
+                                {{designation.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date Effective</mat-label>
+                        <input matInput formControlName="dateEffective" placeholder="format: YYYY-MM-DD">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date End</mat-label>
+                        <input matInput formControlName="dateEnd" placeholder="format: YYYY-MM-DD">
+                    </mat-form-field>
+                    <!-- <mat-form-field>
+                        <mat-label>Department Name</mat-label>
+                        <input matInput formControlName="departmentName" readonly>
+                    </mat-form-field>
+
+                    <input type="hidden" formControlName="designationId">
+
+                    <mat-form-field>
+                        <mat-label>Designation Name</mat-label>
+                        <input matInput formControlName="designationName" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>dateEffective</mat-label>
+                        <input matInput formControlName="dateEffective" placeholder="format: YYYY-MM-DD">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>dateEnd</mat-label>
+                        <input matInput formControlName="dateEnd" placeholder="format: YYYY-MM-DD">
+                    </mat-form-field> -->
+                </form>
+            </div>
+            <button mat-raised-button color="warn" (click)="addEmployeeDesignation()"> + </button>
+            <button mat-raised-button color="primary" (click)="onSubmit();">Edit</button>
+
+        </form>
+    </div>
+</mat-card>
+
+
+
+<!-- <form *ngIf="form" [formGroup]="form">
+
+
+
+    <div formArrayName="employeeDesignations"
+        *ngFor="let employeeDesignationFormGroup of form.controls['employeeDesignations'].controls; let i = index;">
+
+        <div [formGroupName]="i">
+            <input type="hidden" formControlName="id">
+            <input type="hidden" formControlName="createdAt">
+            <input type="hidden" formControlName="updatedAt">
+            <input type="hidden" formControlName="departmentId">
+
+            <label for="departmentName"></label>
+            <input type="text" id="departmentName" formControlName="departmentName" readonly>
+
+            <input type="hidden" formControlName="designationId">
+
+            <label for="designationName">designationName</label>
+            <input type="text" id="designationName" formControlName="designationName" readonly>
+
+            <label for="dateEffective">dateEffective</label>
+            <input type="text" id="dateEffective" formControlName="dateEffective">
+
+            <label for="dateEnd">dateEnd</label>
+            <input type="text" id="dateEnd" formControlName="dateEnd">
+        </div>
+    </div>
+
+    <button (click)="onSubmit();">Edit</button>
+</form> -->

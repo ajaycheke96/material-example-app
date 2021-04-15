@@ -1,0 +1,18 @@
+<div>
+    <div>
+        <!-- Toogle Buttons -->
+        <button mat-button (click)="toogleListView()" *ngIf="!isArticleListShow">Article List</button>
+        <button mat-button (click)="toogleAddView()" *ngIf="!isArticleAddShow">Add Article</button>
+    </div>
+    <div>
+        <app-article-list *ngIf="isArticleListShow" (fetchEditArticleId)="fetchEditArticleId($event)">
+        </app-article-list>
+    </div>
+    <div>
+        <app-article-add *ngIf="isArticleAddShow"></app-article-add>
+    </div>
+    <div>
+        <app-article-edit *ngIf="isArticleEditShow" [articleId]="articleId" (refreshListPage)="refreshListPage($event)">
+        </app-article-edit>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- Form -->
+<mat-card fxLayoutAlign="center" fxFlexFill class="main-div">
+    <div fxFlex="50">
+        <mat-toolbar color="primary">Edit Employee Term Form</mat-toolbar>
+        <form [formGroup]="form" fxLayloutAlign="stretch" fxLayout="column">
+
+            <!-- Start Employee Form -->
+            <form [formGroup]="employeeForm">
+
+                <mat-form-field>
+                    <mat-label>Employee Id</mat-label>
+                    <input matInput formControlName="id" placeholder="Employee Id">
+                </mat-form-field>
+
+            </form>
+            <!-- End Employee Form -->
+
+            <!-- start batch Form -->
+            <form [formGroup]="batchForm">
+
+                <mat-form-field>
+                    <mat-label>Batch Id</mat-label>
+                    <input matInput formControlName="id" placeholder="Batch Id">
+                </mat-form-field>
+            </form>
+            <!-- end batch Form -->
+
+            <mat-form-field>
+                <mat-label>description</mat-label>
+                <input matInput formControlName="description" placeholder="class teacher description">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Date Effective</mat-label>
+                <input matInput formControlName="dateEffective" placeholder="class teacher Date Effective">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="onSubmit();">Edit</button>
+
+        </form>
+    </div>
+</mat-card>
